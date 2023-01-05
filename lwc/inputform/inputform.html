@@ -1,0 +1,74 @@
+<template>
+    <lightning-card>
+        
+<!--
+    string fname,string lname,string email,string phone,string street,
+        string city,string state,string pincode,string product,string source)
+ 
+-->
+        <!--<lightning-spinner variant="brand"
+        alternative-text="Loading">
+        </lightning-spinner>
+    -->
+    <lightning-input type="checkbox" label="Do you want to execute the flow ?"  onchange={handleCheckboxChange}> </lightning-input>
+    
+    <template if:true={spinnerStatus}>      
+        <div class="spinner">        
+                <lightning-spinner variant="brand" alternative-text="Loading..."></lightning-spinner>                       
+        </div>
+   </template>
+   <template if:true={checkboxStatus}>     
+   <lightning-layout multiple-rows>
+    <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+         <!--<lightning-accordion class="InputformSection">
+            <lightning-accordion-section name="A" lable="Interaction Details">
+                   <div class="slds-grid">
+                        <div class="slds-col slds-size_1-of-2 slds-p-right_xx-large" id="form">onchange={handleFName}
+                        --> <lightning-input type="text" label="First Name" class="validate" value={FName} onchange={handleFName} id="firstName" required="true"></lightning-input>
+                            <lightning-input type="text" label="Last Name" class="validate" value={LName} onchange={handleLName} required="true"></lightning-input>
+                            <lightning-input type="text" label="Email" class="validate" value={Email} onchange={handleEmail} required="true" pattern="[A-Za-z0-9._-]+@[a-z0-9-]+\.[a-z]{2,}$" message-when-pattern-mismatch="Please enter a valid email" ></lightning-input>
+                            <lightning-input type="text" label="Phone" class="validate" value={Phone} onchange={handlePhone} required="true" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}$" message-when-pattern-mismatch="Please enter a valid phone number" ></lightning-input>
+                            <lightning-input type="text" label="City" class="validate" value={city} onchange={handleCity} required="true"></lightning-input>
+                            <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+                            <lightning-input type="text" label="Street" class="validate" value={street} onchange={handleStreet} required="true"></lightning-input>
+                            <lightning-input type="text" label="State" class="validate" value={state} onchange={handleState} required="true"></lightning-input>
+                            <lightning-input type="text" label="Pincode" class="validate" value={pincode} onchange={handlePincode} required="true"></lightning-input>
+                            <lightning-combobox name="Product Of Interest" class="validate" label="Product of Interest" placeholder="Select Product of Interest" value={value} onchange={handleChange} options={statusOptions} required="true">
+                            </lightning-combobox>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" class="slds-var-p-top_small">
+                            <lightning-button class="slds-align_absolute-center" variant="brand" label="Submit" title="Submit Action" onclick={handleSubmit} ></lightning-button>  
+                            </lightning-layout-item>                       
+                        <!--</div>
+                    </div>
+            </lightning-accordion-section>
+        </lightning-accordion>-->
+    </lightning-layout-item>
+       </lightning-layout>
+    </template>
+    </lightning-card>
+
+    <div class="slds-box slds-theme_shade">
+        <div class="demo-only" style="padding:0.5rem;background:#16325c">
+            <div class="slds-text-color_inverse-weak">
+        <div class="slds-text-heading_large">
+        <div class="slds-text-align_center">You have a list of References ?
+            You can easily upload them over here !</div>
+        </div>
+        </div>
+        </div>
+    <lightning-card>
+        <div class="slds-align_absolute-center" style="height:5rem">
+            <lightning-file-upload
+            
+            name="fileUploader"
+            accept={acceptedFormats}
+            onuploadfinished={handleUploadFinished}
+        >
+            </lightning-file-upload>
+        </div>
+         
+    </lightning-card>
+</div>
+
+</template>
