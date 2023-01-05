@@ -1,0 +1,13 @@
+<template>
+    <lightning-card>
+        <template if:true={interactions}>
+            <lightning-datatable
+            key-field="id"
+            data={interactions}
+            columns={columns}
+            >
+
+            </lightning-datatable>
+        </template>
+    </lightning-card>
+</template>
